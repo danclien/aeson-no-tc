@@ -13,8 +13,8 @@ executable aeson-no-tc
   main-is:             Main.hs
   build-depends:       base >=4.7 && <4.8
                      , aeson
+                     , aeson-qq
                      , bytestring
-                     , string-qq
                      , text
                      , unordered-containers
                      , vector

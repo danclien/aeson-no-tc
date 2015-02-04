@@ -30,11 +30,10 @@
 module Main where
 
 import Control.Applicative (pure, (<$>), (<*>))
-import Data.Aeson (decode, object)
+import Data.Aeson (object)
+import Data.Aeson.QQ (aesonQQ)
 import Data.Aeson.Types (Parser, Value(..), parseMaybe)
 import Data.HashMap.Strict ((!))
-import Data.Maybe (fromJust)
-import Data.String.QQ (s)
 import Data.Text (Text)
 import Data.Traversable (sequenceA)
 import Data.Vector (fromList, toList)
@@ -112,7 +111,7 @@ samplePosts = [ BlogPost (Body "This post is so awesome!")
               ]
 
 sampleUserJsonValue :: Value
-sampleUserJsonValue = fromJust $ decode [s|
+sampleUserJsonValue = [aesonQQ|
   {
     "name": "Sarah",
     "blogPosts": [
